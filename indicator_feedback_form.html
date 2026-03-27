@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indicator Universe – Feedback</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.7;background:#f5f4f0;color:#1a1a18;min-height:100vh;padding:0}
+:root{
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f4f0;
+  --color-background-tertiary:#eeede8;
+  --color-text-primary:#1a1a18;
+  --color-text-secondary:#6b6b67;
+  --color-border-tertiary:rgba(0,0,0,0.12);
+  --color-border-secondary:rgba(0,0,0,0.22);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+}
+#app{min-height:100vh;padding:16px 0 48px}
+.ct{max-width:700px;margin:0 auto;padding:0 20px}
+.logo{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.1em}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px;margin-bottom:12px}
+.ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:16px 0}
+.nb{padding:10px;background:var(--color-background-primary);border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;font-size:14px;color:var(--color-text-primary);text-align:center;transition:background .15s}
+.nb:hover{background:var(--color-background-secondary)}
+.ac{display:flex;align-items:center;gap:12px;background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 18px;margin-bottom:10px}
+.bdg{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.bd{background:#EAF3DE;color:#27500A}
+.bp{background:#F1EFE8;color:#5F5E5A}
+.bdr{background:#FAEEDA;color:#633806}
+.rg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.rb{padding:7px 14px;border:.5px solid var(--color-border-secondary);border-radius:20px;cursor:pointer;font-size:13px;background:var(--color-background-primary);color:var(--color-text-secondary);transition:background .15s}
+.rb:hover{background:var(--color-background-secondary)}
+.ry{background:#EAF3DE!important;border-color:#3B6D11!important;color:#27500A!important}
+.rpa{background:#FAEEDA!important;border-color:#854F0B!important;color:#633806!important}
+.rno{background:#FCEBEB!important;border-color:#A32D2D!important;color:#501313!important}
+.tg{margin-bottom:10px}
+.tgl{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.tgs{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:12px;padding:3px 10px;border-radius:20px}
+.tc{background:#FAEEDA;color:#633806}
+.tbio{background:#EAF3DE;color:#27500A}
+.tw{background:#E6F1FB;color:#0C447C}
+.tcl{background:#E1F5EE;color:#085041}
+.twp{background:#EEEDFE;color:#3C3489}
+.te{background:#FAECE7;color:#712B13}
+.tsc{background:#FBEAF0;color:#72243E}
+.ttr{background:#EAF3DE;color:#173404;border:.5px solid #97C459}
+.tog{background:#F1EFE8;color:#444441}
+.pb{background:var(--color-background-tertiary);border-radius:20px;height:4px;overflow:hidden;margin:6px 0 20px}
+.pbf{height:100%;background:#3B6D11;border-radius:20px;transition:width .3s}
+.ql{list-style:none;padding:0;margin:0}
+.ql li{padding:6px 0 6px 12px;border-left:2px solid var(--color-border-secondary);margin-bottom:6px;font-size:14px;color:var(--color-text-secondary);line-height:1.5}
+.hdiv{border:none;border-top:.5px solid var(--color-border-tertiary);margin:20px 0}
+.back{font-size:13px;color:var(--color-text-secondary);background:none;border:none;cursor:pointer;padding:0 0 14px;display:block}
+button{font-family:inherit;font-size:14px;padding:7px 16px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;transition:background .15s}
+button:hover{background:var(--color-background-secondary)}
+button:disabled{opacity:.5;cursor:not-allowed}
+textarea{font-family:inherit;font-size:14px;width:100%;padding:8px 12px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);outline:none;resize:vertical}
+textarea:focus{border-color:rgba(0,0,0,0.4)}
+.sav-ok{font-size:12px;color:#27500A;margin:10px 0 0}
+.sav-dr{font-size:12px;color:#854F0B;margin:10px 0 0}
+.sav-err{font-size:12px;color:#A32D2D;margin:10px 0 0}
+.spinner{display:inline-block;width:11px;height:11px;border:1.5px solid rgba(0,0,0,0.15);border-top-color:#3B6D11;border-radius:50%;animation:spin .6s linear infinite;margin-right:6px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="app"><div class="ct"><p style="color:var(--color-text-secondary);font-size:14px;padding:2rem 0">Loading...</p></div></div>
+<script>
+const SHEET_URL="https://script.google.com/macros/s/AKfycbxGaiKfurXrJjIHkZaUv4FCvyhJ3Mytu8twFucnIldX_swA93YCtmX0_ag2pWfFToBi/exec";
+const LS="ind-fb:";
+
+const DATA=[
+  {id:0,persona:"Funder",subPersona:"ESG Outcome Buyers",q:["What nature outcomes can I expect from restoration, and under what conditions can I purchase them?","Is progress on track toward the contracted outcomes I've committed to?","Once verified, does the data give me defensible proof of positive impact to use in my ESG claims?"],pocs:["Sean","Jessica","Nienke"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*","% attainment of target canopy cover"]}},
+  {id:1,persona:"Funder",subPersona:"Supply Chain Companies & Corporate Sustainability Teams",q:["Can I verify the environmental claims linked to my supply chain?","Are restoration projects meeting the sustainability commitments my organisation has made to customers?"],pocs:["Nienke","Michael","Paige"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Tree":["Trees grown*","Hectares under restoration","Percentage tree cover change*"]}},
+  {id:2,persona:"Funder",subPersona:"Capital providers financing land-use transitions",q:["What is the financial return profile of land-use transition projects?","Are restoration projects de-risked enough for capital deployment?"],pocs:["Nienke","Michael","Paige"],ind:{"Carbon":["Carbon sequestered after 6 years*"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration"],"Org Growth":["Net profit margin","Current ratio","Enterprise repayment","Finance repayment","External finance"]}},
+  {id:3,persona:"Funder",subPersona:"Derisking Investors",q:["Are we on track for number of trees planted?","What is the real cost per tree versus projected versus benchmarked?","What is the real survival rate versus projected versus benchmarked?"],pocs:["Nienke","Michael","Paige"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees planted","Trees grown*","Survival rate","Hectares under restoration","# cost per tree grown by restoration intervention type","% attainment of target canopy cover"]}},
+  {id:4,persona:"Funder",subPersona:"ESG Conscious Commodity Customers",q:["Are the commodities I'm purchasing linked to verified, responsible land use?","Can I demonstrate to my own stakeholders that my supply chain is sustainable?","Can I find and connect with verified restoration projects that align with my commodity sourcing needs?"],pocs:["Nienke","Michael","Paige"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Tree":["Trees grown*","Hectares under restoration","Percentage tree cover change*"]}},
+  {id:5,persona:"Funder",subPersona:"Upfront Investors",q:["Will this investment generate favourable returns?","What is the risk-adjusted performance of the portfolio?","Which portfolios offer the right balance of derisking support, interest rate, and tenor for my capital?","Am I getting timely, transparent monitoring updates on the risks to my investment?","Does verification unlock repayment, and does the verified track record help me build my reputation with future investors?"],pocs:["Sean","Nienke"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","% change in species richness within class"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*"],"Org Growth":["Net profit margin","Change in revenue","Enterprise repayment","Finance repayment","Budget execution rate"]}},
+  {id:6,persona:"Funder",subPersona:"Desrisking Investors",q:["Is my capital genuinely reducing project risk for the ecosystem?","Are the risk conditions I'm covering being tracked clearly and will I know early if a guarantee mechanism needs to trigger?","Am I monitoring portfolio-wide underperformance indicators closely enough to act before losses materialise?","Does the verified outcome data demonstrate the strength of the portfolio and justify my mission-driven capital?"],pocs:["Sean","Nienke"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration"],"Org Growth":["Net profit margin","Change in revenue","Budget execution rate"]}},
+  {id:7,persona:"Funder",subPersona:"Impact Investor",q:["What measurable impact is my investment generating?","How does this portfolio compare to my impact thesis?","How can we establish a universal language for restoration data that moves beyond simple tree counts to provide standardized, real-time verification for complex outcomes?","What blended-finance or outcome-based models can aggregate small-scale community-led initiatives into a single high-capacity investment vehicle?","How can dMRV platforms shift from data repositories for implementers to strategic planning tools for funders?"],pocs:["Sean","Alannah"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed"],"W+":["Individuals in communities receiving direct benefits","Individuals in communities receiving indirect benefits","Actions taken to support women and marginalized communities","Total paid person day by Male/Female and Youth"],"Socioeconomics":["Full-time employees","Part-time employees","Volunteers","# of Person-days of work created","# of socioeconomic restoration partners","Addressing barriers"],"Tree":["Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*","% attainment of target canopy cover"]}},
+  {id:8,persona:"Portfolio Managers",subPersona:"Project Manager",q:["Which projects and investors should I bring into my portfolio, and are the terms aligned to our mission?","Is my portfolio generating indicator data that is high-quality, human-readable, and ready for verification?","Are verified outcomes triggering the right financial flows to keep the revolving facility running?","Which of my projects are performing best?","What is the progress towards the fund goals from my projects/portfolio?"],pocs:["Jean Marie","Karaya","Ange","Noah","Will"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed","Incorporation into local/forest planning"],"W+":["Individuals in communities receiving direct benefits","Individuals in communities receiving indirect benefits","Trainees","Actions taken to support women and marginalized communities","Total paid person day by Male/Female and Youth"],"Socioeconomics":["Full-time employees","Part-time employees","Volunteers","Income-generating activities","# of Person-days of work created","# of socioeconomic restoration partners","Addressing barriers"],"Tree":["Seedlings produced","Trees planted","Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*","# cost per tree grown by restoration intervention type","% attainment of target canopy cover"],"Org Growth":["Net profit margin","Change in revenue","Current ratio","Budget execution rate","Change in operating budget","External finance"]}},
+  {id:9,persona:"Portfolio Managers",subPersona:"GIS Associate",q:["Are the spatial boundaries and polygon data accurate and up to date?","Does reported trees planted match what is reported in polygons?"],pocs:["Kevin","Nancy"],ind:{"Tree":["Trees planted","Hectares under restoration","Percentage tree cover change*","Total hectares under restoration by each Organization","# of hectares under restoration, by ecosystem type"]}},
+  {id:10,persona:"Portfolio Managers",subPersona:"Verification",q:["Does the reported data in polygons and site reports match what independent verification shows?","Are there discrepancies between self-reported and remotely-sensed indicators?"],pocs:["Jessica","John","Darby"],ind:{"Carbon":["Carbon sequestered after 6 years*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*"]}},
+  {id:11,persona:"Project Developer",subPersona:"Non Profits",q:["How do I find a Portfolio Manager willing to fund my project, and what does a strong proposal look like?","How can reporting and MRV processes be streamlined to prevent admin burnout for my team?","How can I transition my organisation from a fragile, volunteer-dependent model into a professionally staffed, well-resourced entity?","Does my verified data build enough of a reputation to attract future projects and funding?"],pocs:["Jean Marie","Ange"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed","Incorporation into local/forest planning"],"W+":["Total community persons receiving direct livelihood benefit","Total community persons receiving indirect livelihood benefit","Total people receiving training and capacity building","Actions taken to support women and marginalized communities","Total paid person day by Male/Female and Youth"],"Socioeconomics":["Full-time employees","Part-time employees","Volunteers","Income-generating activities","Addressing barriers"],"Tree":["Seedlings produced","Trees planted","Survival rate","Hectares under restoration","Percentage tree cover change*"],"Org Growth":["Net profit margin","Income-generating activities"]}},
+  {id:12,persona:"Project Developer",subPersona:"For Profit",q:["How can I transition my business from a vulnerable model into a diversified enterprise leveraging secondary income streams?","How can reporting requirements serve as a growth tool rather than an administrative burden?","How do I build and farm an environmentally responsible crop that meets restoration standards?","How do I find buyers for the commodities produced through my restoration activities?"],pocs:["Karaya","Celestin"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Climate Resilience":["# of major disturbances observed","Incorporation into local/forest planning"],"Socioeconomics":["Income-generating activities","Full-time employees","Part-time employees","# of Person-days of work created","List of project supported income opportunities"],"Tree":["Seedlings produced","Trees planted","Trees grown*","Survival rate","Hectares under restoration"],"Org Growth":["Net profit margin","Change in revenue","Current ratio","Budget execution rate","External finance","Income-generating activities"]}},
+  {id:13,persona:"Policy Enablers",subPersona:"Public Program Managers",q:["Are publicly funded restoration programmes achieving their ecological and social targets?","How is public money being deployed and what outcomes is it generating?"],pocs:["Sean","Umi","Peters"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed","Incorporation into local/forest planning"],"W+":["Individuals in communities receiving direct benefits","Individuals in communities receiving indirect benefits","Trainees","Actions taken to support women and marginalized communities","Total paid person day by Male/Female and Youth"],"Socioeconomics":["Full-time employees","Part-time employees","Volunteers","# of Person-days of work created","Addressing barriers"],"Tree":["Trees grown*","Hectares under restoration","Percentage tree cover change*","% attainment of target canopy cover"],"Org Growth":["Budget execution rate","Change in operating budget"]}},
+  {id:14,persona:"Policy Enablers",subPersona:"Policymaker/Government Representative",q:["Is restoration activity translating into measurable policy outcomes (e.g. tree cover change, jobs, carbon)?","Are private and public investments in restoration aligned with national commitments and plans (e.g. NDCs, forest working plans)?","What playbooks and tools can help co-create tailored incentive mechanisms and restoration policies?"],pocs:["Maggie","Duncan"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["Incorporation into local/forest planning"],"Socioeconomics":["Full-time employees","Part-time employees","Individuals in communities receiving direct benefits","Individuals in communities receiving indirect benefits","Addressing barriers"],"Tree":["Trees grown*","Hectares under restoration","Percentage tree cover change*"]}}
+];
+
+let S={poc:null,fi:0,drafts:{},saved:{}};
+const myA=poc=>DATA.filter(d=>d.pocs.includes(poc));
+const lsKey=(poc,id)=>`${LS}${poc}:${id}`;
+function lsGet(k){try{const v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+
+async function postToSheet(payload){
+  await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+}
+
+function catCls(c){return({'Carbon':'tc','Biodiversity':'tbio','Water':'tw','Climate Resilience':'tcl','W+':'twp','Erosion Control':'te','Socioeconomics':'tsc','Tree':'ttr','Org Growth':'tog'})[c]||'tog';}
+function indHTML(ind){return Object.entries(ind).map(([cat,items])=>`<div class="tg"><div class="tgl">${cat}</div><div class="tgs">${items.map(i=>`<span class="tag ${catCls(cat)}">${i}</span>`).join('')}</div></div>`).join('');}
+function rbHTML(field,cur){return `<div class="rg"><button class="rb ${cur==='yes'?'ry':''}" onclick="setRating('${field}','yes')">Yes, looks right</button><button class="rb ${cur==='partial'?'rpa':''}" onclick="setRating('${field}','partial')">Partially / needs tweaks</button><button class="rb ${cur==='no'?'rno':''}" onclick="setRating('${field}','no')">No, needs rethinking</button></div>`;}
+
+function renderWelcome(){
+  const pocs=[...new Set(DATA.flatMap(d=>d.pocs))].sort();
+  document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:2rem 0 1.5rem">
+    <div class="logo">Indicator Universe &middot; Feedback</div>
+    <h1 style="font-size:22px;font-weight:500;margin:.75rem 0 .5rem">Who are you?</h1>
+    <p style="color:var(--color-text-secondary);font-size:14px;margin:0 0 1.5rem">Select your name to see your assigned personas and provide feedback.</p>
+    <div class="ng">${pocs.map(p=>`<button class="nb" onclick="selPoc('${p.replace(/'/g,"\\'")}')">${p}</button>`).join('')}</div>
+  </div></div>`;
+}
+
+function renderDashboard(){
+  const asgns=myA(S.poc);
+  const done=asgns.filter(a=>S.saved[a.id]?.completed).length;
+  const pct=asgns.length?Math.round(done/asgns.length*100):0;
+  const cards=asgns.map((a,i)=>{const sv=S.saved[a.id];const st=sv?.completed?'done':sv?'draft':'pending';const stL=st==='done'?'Complete':st==='draft'?'Draft saved':'Not started';const cnt=Object.values(a.ind).flat().length;const cats=Object.keys(a.ind).length;return `<div class="ac"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px">${a.persona}</div><div style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.subPersona}</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px">${cnt} indicators &middot; ${cats} categories &middot; ${a.q.length} questions</div></div><span class="bdg ${st==='done'?'bd':st==='draft'?'bdr':'bp'}">${stL}</span><button onclick="startForm(${i})" style="font-size:13px;padding:6px 14px;white-space:nowrap">${st==='pending'?'Start':'Edit'}</button></div>`;}).join('');
+  document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:1.5rem 0 1rem">
+    <button class="back" onclick="goBack()">&#8592; Back</button>
+    <div class="logo">Indicator Universe &middot; Feedback</div>
+    <h1 style="font-size:22px;font-weight:500;margin:.5rem 0 .25rem">Hello, ${S.poc}</h1>
+    <p style="color:var(--color-text-secondary);font-size:14px;margin:0 0 .5rem">${done} of ${asgns.length} reviews complete</p>
+    <div class="pb"><div class="pbf" style="width:${pct}%"></div></div>
+    ${cards}
+    ${done===asgns.length&&asgns.length>0?`<div class="card" style="background:#EAF3DE;border-color:#3B6D11;text-align:center;padding:1.5rem;margin-top:4px"><p style="color:#27500A;font-weight:500;margin:0;font-size:15px">All ${asgns.length} reviews submitted. Thank you!</p></div>`:''}
+  </div></div>`;
+}
+
+function renderForm(statusMsg){
+  const asgns=myA(S.poc);const a=asgns[S.fi];const dr=S.drafts[a.id]||{};const sv=S.saved[a.id];
+  const defStatus=sv?.completed?`<p class="sav-ok">&#10003; Submitted to Google Sheet</p>`:sv?`<p class="sav-dr">Draft saved locally</p>`:'';
+  document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:1rem 0">
+    <button class="back" onclick="backDash()">&#8592; Back to dashboard</button>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:12px">
+      <div>
+        <div class="logo">Review ${S.fi+1} of ${asgns.length}</div>
+        <div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin:.3rem 0 .1rem">${a.persona}</div>
+        <h2 style="font-size:19px;font-weight:500;margin:0">${a.subPersona}</h2>
+      </div>
+      <div style="display:flex;gap:6px;flex-shrink:0;margin-top:4px">
+        ${S.fi>0?`<button onclick="navF(${S.fi-1})">&#8592; Prev</button>`:''}
+        ${S.fi<asgns.length-1?`<button onclick="navF(${S.fi+1})">Next &#8594;</button>`:''}
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Key questions for this persona</div>
+      <ul class="ql">${a.q.map(q=>`<li>${q}</li>`).join('')}</ul>
+      <hr class="hdiv">
+      <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Proposed indicators</div>
+      ${indHTML(a.ind)}
+    </div>
+    <div class="card">
+      <div style="margin-bottom:1.5rem">
+        <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">Are these the right key questions?</h3>
+        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Do these questions capture what this persona actually cares about?</p>
+        ${rbHTML('qR',dr.qR||'')}
+        <textarea placeholder="What would you change, reframe, or add?" oninput="upDraft('qN',this.value)" style="min-height:72px;margin-top:4px">${dr.qN||''}</textarea>
+      </div>
+      <hr class="hdiv" style="margin:0 0 1.5rem">
+      <div style="margin-bottom:1.5rem">
+        <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">Are these the right indicators?</h3>
+        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Do these indicators give a meaningful picture for this persona?</p>
+        ${rbHTML('iR',dr.iR||'')}
+        <textarea placeholder="Which indicators would you change, remove, or add? Why?" oninput="upDraft('iN',this.value)" style="min-height:72px;margin-top:4px">${dr.iN||''}</textarea>
+      </div>
+      <hr class="hdiv" style="margin:0 0 1.5rem">
+      <div style="margin-bottom:1.5rem">
+        <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">What's missing?</h3>
+        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Anything else this persona needs that isn't captured above?</p>
+        <textarea placeholder="Questions, indicators, or context gaps not mentioned above..." oninput="upDraft('ms',this.value)" style="min-height:72px;margin-top:4px">${dr.ms||''}</textarea>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button id="btn-draft" onclick="submitR(false)" style="font-size:13px;padding:8px 18px;color:var(--color-text-secondary)">Save draft</button>
+        <button id="btn-submit" onclick="submitR(true)" style="font-size:14px;padding:8px 20px;font-weight:500">Mark as complete</button>
+      </div>
+      <div id="status-msg">${statusMsg!==undefined?statusMsg:defStatus}</div>
+    </div>
+  </div></div>`;
+}
+
+function selPoc(poc){
+  S.poc=poc;S.saved={};
+  const asgns=myA(poc);
+  for(const a of asgns){const v=lsGet(lsKey(poc,a.id));if(v)S.saved[a.id]=v;}
+  renderDashboard();
+}
+function startForm(i){S.fi=i;const a=myA(S.poc)[i];if(!S.drafts[a.id]&&S.saved[a.id])S.drafts[a.id]={...S.saved[a.id]};renderForm();}
+function backDash(){renderDashboard();}
+function goBack(){S.poc=null;renderWelcome();}
+function navF(i){const a=myA(S.poc)[i];if(!S.drafts[a.id]&&S.saved[a.id])S.drafts[a.id]={...S.saved[a.id]};S.fi=i;renderForm();}
+
+function setRating(field,val){
+  const a=myA(S.poc)[S.fi];
+  if(!S.drafts[a.id])S.drafts[a.id]={};
+  S.drafts[a.id][field]=S.drafts[a.id][field]===val?'':val;
+  renderForm();
+}
+function upDraft(field,val){
+  const a=myA(S.poc)[S.fi];
+  if(!S.drafts[a.id])S.drafts[a.id]={};
+  S.drafts[a.id][field]=val;
+}
+
+async function submitR(complete){
+  const poc=S.poc;const a=myA(poc)[S.fi];
+  const dr=S.drafts[a.id]||{};const ex=S.saved[a.id]||{};
+  const data={poc,persona:a.persona,subPersona:a.subPersona,qR:dr.qR??ex.qR??'',qN:dr.qN??ex.qN??'',iR:dr.iR??ex.iR??'',iN:dr.iN??ex.iN??'',ms:dr.ms??ex.ms??'',completed:complete,at:new Date().toISOString()};
+
+  const btnD=document.getElementById('btn-draft');
+  const btnS=document.getElementById('btn-submit');
+  const statusEl=document.getElementById('status-msg');
+  if(btnD)btnD.disabled=true;
+  if(btnS)btnS.disabled=true;
+  if(statusEl)statusEl.innerHTML=`<p style="font-size:12px;color:var(--color-text-secondary);margin:10px 0 0"><span class="spinner"></span>${complete?'Submitting to Google Sheet...':'Saving...'}</p>`;
+
+  lsSet(lsKey(poc,a.id),data);
+  S.saved[a.id]=data;
+
+  try{
+    await postToSheet(data);
+    if(!complete){
+      renderForm(`<p class="sav-dr">Draft saved locally</p>`);
+    } else {
+      const asgns=myA(poc);
+      if(S.fi<asgns.length-1){
+        S.fi++;
+        const n=asgns[S.fi];
+        if(!S.drafts[n.id]&&S.saved[n.id])S.drafts[n.id]={...S.saved[n.id]};
+        renderForm(`<p class="sav-ok">&#10003; Previous review submitted to Google Sheet</p>`);
+      } else {
+        renderDashboard();
+      }
+    }
+  } catch(err){
+    if(btnD)btnD.disabled=false;
+    if(btnS)btnS.disabled=false;
+    if(statusEl)statusEl.innerHTML=`<p class="sav-err">Could not reach the sheet — your response is saved locally. Try again in a moment.</p>`;
+  }
+}
+
+renderWelcome();
+</script>
+</body>
+</html>
