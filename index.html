@@ -6,38 +6,33 @@
 <title>Indicator Universe – Feedback</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.7;background:#f5f4f0;color:#1a1a18;min-height:100vh;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.7;background:#f5f4f0;color:#1a1a18;min-height:100vh}
 :root{
-  --color-background-primary:#ffffff;
-  --color-background-secondary:#f5f4f0;
-  --color-background-tertiary:#eeede8;
-  --color-text-primary:#1a1a18;
-  --color-text-secondary:#6b6b67;
-  --color-border-tertiary:rgba(0,0,0,0.12);
-  --color-border-secondary:rgba(0,0,0,0.22);
-  --border-radius-md:8px;
-  --border-radius-lg:12px;
+  --bg:#ffffff;--bg2:#f5f4f0;--bg3:#eeede8;
+  --tx:#1a1a18;--tx2:#6b6b67;
+  --bd:rgba(0,0,0,0.12);--bd2:rgba(0,0,0,0.22);
+  --rm:8px;--rl:12px;
 }
 #app{min-height:100vh;padding:16px 0 48px}
 .ct{max-width:700px;margin:0 auto;padding:0 20px}
-.logo{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.1em}
-.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px;margin-bottom:12px}
+.logo{font-size:11px;font-weight:500;color:var(--tx2);text-transform:uppercase;letter-spacing:.1em}
+.card{background:var(--bg);border:.5px solid var(--bd);border-radius:var(--rl);padding:20px;margin-bottom:12px}
 .ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:16px 0}
-.nb{padding:10px;background:var(--color-background-primary);border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;font-size:14px;color:var(--color-text-primary);text-align:center;transition:background .15s}
-.nb:hover{background:var(--color-background-secondary)}
-.ac{display:flex;align-items:center;gap:12px;background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 18px;margin-bottom:10px}
+.nb{padding:10px;background:var(--bg);border:.5px solid var(--bd2);border-radius:var(--rm);cursor:pointer;font-size:14px;color:var(--tx);text-align:center;transition:background .15s}
+.nb:hover{background:var(--bg2)}
+.ac{display:flex;align-items:center;gap:12px;background:var(--bg);border:.5px solid var(--bd);border-radius:var(--rl);padding:14px 18px;margin-bottom:10px}
 .bdg{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.bd{background:#EAF3DE;color:#27500A}
-.bp{background:#F1EFE8;color:#5F5E5A}
-.bdr{background:#FAEEDA;color:#633806}
+.bd-g{background:#EAF3DE;color:#27500A}
+.bd-p{background:#F1EFE8;color:#5F5E5A}
+.bd-a{background:#FAEEDA;color:#633806}
 .rg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.rb{padding:7px 14px;border:.5px solid var(--color-border-secondary);border-radius:20px;cursor:pointer;font-size:13px;background:var(--color-background-primary);color:var(--color-text-secondary);transition:background .15s}
-.rb:hover{background:var(--color-background-secondary)}
+.rb{padding:7px 14px;border:.5px solid var(--bd2);border-radius:20px;cursor:pointer;font-size:13px;background:var(--bg);color:var(--tx2);transition:background .15s}
+.rb:hover{background:var(--bg2)}
 .ry{background:#EAF3DE!important;border-color:#3B6D11!important;color:#27500A!important}
 .rpa{background:#FAEEDA!important;border-color:#854F0B!important;color:#633806!important}
 .rno{background:#FCEBEB!important;border-color:#A32D2D!important;color:#501313!important}
 .tg{margin-bottom:10px}
-.tgl{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.tgl{font-size:11px;font-weight:500;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .tgs{display:flex;flex-wrap:wrap;gap:4px}
 .tag{font-size:12px;padding:3px 10px;border-radius:20px}
 .tc{background:#FAEEDA;color:#633806}
@@ -49,29 +44,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .tsc{background:#FBEAF0;color:#72243E}
 .ttr{background:#EAF3DE;color:#173404;border:.5px solid #97C459}
 .tog{background:#F1EFE8;color:#444441}
-.pb{background:var(--color-background-tertiary);border-radius:20px;height:4px;overflow:hidden;margin:6px 0 20px}
+.pb{background:var(--bg3);border-radius:20px;height:4px;overflow:hidden;margin:6px 0 20px}
 .pbf{height:100%;background:#3B6D11;border-radius:20px;transition:width .3s}
 .ql{list-style:none;padding:0;margin:0}
-.ql li{padding:6px 0 6px 12px;border-left:2px solid var(--color-border-secondary);margin-bottom:6px;font-size:14px;color:var(--color-text-secondary);line-height:1.5}
-.hdiv{border:none;border-top:.5px solid var(--color-border-tertiary);margin:20px 0}
-.back{font-size:13px;color:var(--color-text-secondary);background:none;border:none;cursor:pointer;padding:0 0 14px;display:block}
-button{font-family:inherit;font-size:14px;padding:7px 16px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;transition:background .15s}
-button:hover{background:var(--color-background-secondary)}
-button:disabled{opacity:.5;cursor:not-allowed}
-textarea{font-family:inherit;font-size:14px;width:100%;padding:8px 12px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);outline:none;resize:vertical}
+.ql li{padding:6px 0 6px 12px;border-left:2px solid var(--bd2);margin-bottom:6px;font-size:14px;color:var(--tx2);line-height:1.5}
+.hdiv{border:none;border-top:.5px solid var(--bd);margin:20px 0}
+.back{font-size:13px;color:var(--tx2);background:none;border:none;cursor:pointer;padding:0 0 14px;display:block}
+button{font-family:inherit;font-size:14px;padding:7px 16px;border:.5px solid var(--bd2);border-radius:var(--rm);background:var(--bg);color:var(--tx);cursor:pointer;transition:background .15s}
+button:hover{background:var(--bg2)}
+button:disabled{opacity:.45;cursor:not-allowed}
+textarea{font-family:inherit;font-size:14px;width:100%;padding:8px 12px;border:.5px solid var(--bd2);border-radius:var(--rm);background:var(--bg);color:var(--tx);outline:none;resize:vertical}
 textarea:focus{border-color:rgba(0,0,0,0.4)}
-.sav-ok{font-size:12px;color:#27500A;margin:10px 0 0}
-.sav-dr{font-size:12px;color:#854F0B;margin:10px 0 0}
-.sav-err{font-size:12px;color:#A32D2D;margin:10px 0 0}
-.spinner{display:inline-block;width:11px;height:11px;border:1.5px solid rgba(0,0,0,0.15);border-top-color:#3B6D11;border-radius:50%;animation:spin .6s linear infinite;margin-right:6px;vertical-align:middle}
+.msg-ok{font-size:12px;color:#27500A;margin:10px 0 0}
+.msg-sv{font-size:12px;color:#854F0B;margin:10px 0 0}
+.msg-er{font-size:12px;color:#A32D2D;margin:10px 0 0}
+.msg-ld{font-size:12px;color:var(--tx2);margin:10px 0 0}
+.spinner{display:inline-block;width:11px;height:11px;border:1.5px solid rgba(0,0,0,0.12);border-top-color:#3B6D11;border-radius:50%;animation:spin .6s linear infinite;margin-right:5px;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
+.loading-overlay{position:fixed;inset:0;background:rgba(245,244,240,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:100}
+.loading-overlay p{font-size:14px;color:var(--tx2)}
 </style>
 </head>
 <body>
-<div id="app"><div class="ct"><p style="color:var(--color-text-secondary);font-size:14px;padding:2rem 0">Loading...</p></div></div>
+<div id="app"></div>
 <script>
 const SHEET_URL="https://script.google.com/macros/s/AKfycbxGaiKfurXrJjIHkZaUv4FCvyhJ3Mytu8twFucnIldX_swA93YCtmX0_ag2pWfFToBi/exec";
-const LS="ind-fb:";
 
 const DATA=[
   {id:0,persona:"Funder",subPersona:"ESG Outcome Buyers",q:["What nature outcomes can I expect from restoration, and under what conditions can I purchase them?","Is progress on track toward the contracted outcomes I've committed to?","Once verified, does the data give me defensible proof of positive impact to use in my ESG claims?"],pocs:["Sean","Jessica","Nienke"],ind:{"Carbon":["Carbon sequestered after 6 years*","Estimated # tons of CO2 sequestered (by year 5)*"],"Biodiversity":["Average % change in abundance within class","Occupancy Index","Community Similarity Index","# of ecosystem service restoration partners","% change in species richness within class"],"Water":["# people directly benefiting from improved freshwater quality or quantity"],"Climate Resilience":["# of major disturbances observed"],"Tree":["Trees grown*","Survival rate","Hectares under restoration","Percentage tree cover change*","% attainment of target canopy cover"]}},
@@ -93,24 +90,35 @@ const DATA=[
 
 let S={poc:null,fi:0,drafts:{},saved:{}};
 const myA=poc=>DATA.filter(d=>d.pocs.includes(poc));
-const lsKey=(poc,id)=>`${LS}${poc}:${id}`;
-function lsGet(k){try{const v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
-function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
-
-async function postToSheet(payload){
-  await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
-}
 
 function catCls(c){return({'Carbon':'tc','Biodiversity':'tbio','Water':'tw','Climate Resilience':'tcl','W+':'twp','Erosion Control':'te','Socioeconomics':'tsc','Tree':'ttr','Org Growth':'tog'})[c]||'tog';}
 function indHTML(ind){return Object.entries(ind).map(([cat,items])=>`<div class="tg"><div class="tgl">${cat}</div><div class="tgs">${items.map(i=>`<span class="tag ${catCls(cat)}">${i}</span>`).join('')}</div></div>`).join('');}
 function rbHTML(field,cur){return `<div class="rg"><button class="rb ${cur==='yes'?'ry':''}" onclick="setRating('${field}','yes')">Yes, looks right</button><button class="rb ${cur==='partial'?'rpa':''}" onclick="setRating('${field}','partial')">Partially / needs tweaks</button><button class="rb ${cur==='no'?'rno':''}" onclick="setRating('${field}','no')">No, needs rethinking</button></div>`;}
+
+function showOverlay(msg){
+  let ov=document.getElementById('overlay');
+  if(!ov){ov=document.createElement('div');ov.id='overlay';ov.className='loading-overlay';document.body.appendChild(ov);}
+  ov.innerHTML=`<span class="spinner" style="width:18px;height:18px;border-width:2px"></span><p>${msg}</p>`;
+}
+function hideOverlay(){const ov=document.getElementById('overlay');if(ov)ov.remove();}
+
+async function fetchSavedFromSheet(poc){
+  const url=`${SHEET_URL}?poc=${encodeURIComponent(poc)}`;
+  const res=await fetch(url);
+  const json=await res.json();
+  return json.responses||{};
+}
+
+async function postToSheet(payload){
+  await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+}
 
 function renderWelcome(){
   const pocs=[...new Set(DATA.flatMap(d=>d.pocs))].sort();
   document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:2rem 0 1.5rem">
     <div class="logo">Indicator Universe &middot; Feedback</div>
     <h1 style="font-size:22px;font-weight:500;margin:.75rem 0 .5rem">Who are you?</h1>
-    <p style="color:var(--color-text-secondary);font-size:14px;margin:0 0 1.5rem">Select your name to see your assigned personas and provide feedback.</p>
+    <p style="color:var(--tx2);font-size:14px;margin:0 0 1.5rem">Select your name to load your assignments. Any progress you've previously saved will be pulled in automatically.</p>
     <div class="ng">${pocs.map(p=>`<button class="nb" onclick="selPoc('${p.replace(/'/g,"\\'")}')">${p}</button>`).join('')}</div>
   </div></div>`;
 }
@@ -119,12 +127,19 @@ function renderDashboard(){
   const asgns=myA(S.poc);
   const done=asgns.filter(a=>S.saved[a.id]?.completed).length;
   const pct=asgns.length?Math.round(done/asgns.length*100):0;
-  const cards=asgns.map((a,i)=>{const sv=S.saved[a.id];const st=sv?.completed?'done':sv?'draft':'pending';const stL=st==='done'?'Complete':st==='draft'?'Draft saved':'Not started';const cnt=Object.values(a.ind).flat().length;const cats=Object.keys(a.ind).length;return `<div class="ac"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px">${a.persona}</div><div style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.subPersona}</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px">${cnt} indicators &middot; ${cats} categories &middot; ${a.q.length} questions</div></div><span class="bdg ${st==='done'?'bd':st==='draft'?'bdr':'bp'}">${stL}</span><button onclick="startForm(${i})" style="font-size:13px;padding:6px 14px;white-space:nowrap">${st==='pending'?'Start':'Edit'}</button></div>`;}).join('');
+  const cards=asgns.map((a,i)=>{
+    const sv=S.saved[a.id];
+    const st=sv?.completed?'done':sv?'draft':'pending';
+    const stL=st==='done'?'Complete':st==='draft'?'In progress':'Not started';
+    const cnt=Object.values(a.ind).flat().length;
+    const cats=Object.keys(a.ind).length;
+    return `<div class="ac"><div style="flex:1;min-width:0"><div style="font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px">${a.persona}</div><div style="font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.subPersona}</div><div style="font-size:12px;color:var(--tx2);margin-top:3px">${cnt} indicators &middot; ${cats} categories &middot; ${a.q.length} questions</div></div><span class="bdg ${st==='done'?'bd-g':st==='draft'?'bd-a':'bd-p'}">${stL}</span><button onclick="startForm(${i})" style="font-size:13px;padding:6px 14px;white-space:nowrap">${st==='pending'?'Start':'Continue'}</button></div>`;
+  }).join('');
   document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:1.5rem 0 1rem">
     <button class="back" onclick="goBack()">&#8592; Back</button>
     <div class="logo">Indicator Universe &middot; Feedback</div>
     <h1 style="font-size:22px;font-weight:500;margin:.5rem 0 .25rem">Hello, ${S.poc}</h1>
-    <p style="color:var(--color-text-secondary);font-size:14px;margin:0 0 .5rem">${done} of ${asgns.length} reviews complete</p>
+    <p style="color:var(--tx2);font-size:14px;margin:0 0 .5rem">${done} of ${asgns.length} reviews complete</p>
     <div class="pb"><div class="pbf" style="width:${pct}%"></div></div>
     ${cards}
     ${done===asgns.length&&asgns.length>0?`<div class="card" style="background:#EAF3DE;border-color:#3B6D11;text-align:center;padding:1.5rem;margin-top:4px"><p style="color:#27500A;font-weight:500;margin:0;font-size:15px">All ${asgns.length} reviews submitted. Thank you!</p></div>`:''}
@@ -133,13 +148,13 @@ function renderDashboard(){
 
 function renderForm(statusMsg){
   const asgns=myA(S.poc);const a=asgns[S.fi];const dr=S.drafts[a.id]||{};const sv=S.saved[a.id];
-  const defStatus=sv?.completed?`<p class="sav-ok">&#10003; Submitted to Google Sheet</p>`:sv?`<p class="sav-dr">Draft saved locally</p>`:'';
+  const defStatus=sv?.completed?`<p class="msg-ok">&#10003; Marked as complete</p>`:sv?`<p class="msg-sv">Progress saved to sheet</p>`:'';
   document.getElementById('app').innerHTML=`<div class="ct"><div style="padding:1rem 0">
     <button class="back" onclick="backDash()">&#8592; Back to dashboard</button>
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:12px">
       <div>
         <div class="logo">Review ${S.fi+1} of ${asgns.length}</div>
-        <div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin:.3rem 0 .1rem">${a.persona}</div>
+        <div style="font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;margin:.3rem 0 .1rem">${a.persona}</div>
         <h2 style="font-size:19px;font-weight:500;margin:0">${a.subPersona}</h2>
       </div>
       <div style="display:flex;gap:6px;flex-shrink:0;margin-top:4px">
@@ -148,47 +163,56 @@ function renderForm(statusMsg){
       </div>
     </div>
     <div class="card">
-      <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Key questions for this persona</div>
+      <div style="font-size:11px;font-weight:500;color:var(--tx2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Key questions for this persona</div>
       <ul class="ql">${a.q.map(q=>`<li>${q}</li>`).join('')}</ul>
       <hr class="hdiv">
-      <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Proposed indicators</div>
+      <div style="font-size:11px;font-weight:500;color:var(--tx2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem">Proposed indicators</div>
       ${indHTML(a.ind)}
     </div>
     <div class="card">
       <div style="margin-bottom:1.5rem">
         <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">Are these the right key questions?</h3>
-        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Do these questions capture what this persona actually cares about?</p>
+        <p style="font-size:13px;color:var(--tx2);margin:0 0 .25rem">Do these questions capture what this persona actually cares about?</p>
         ${rbHTML('qR',dr.qR||'')}
         <textarea placeholder="What would you change, reframe, or add?" oninput="upDraft('qN',this.value)" style="min-height:72px;margin-top:4px">${dr.qN||''}</textarea>
       </div>
       <hr class="hdiv" style="margin:0 0 1.5rem">
       <div style="margin-bottom:1.5rem">
         <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">Are these the right indicators?</h3>
-        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Do these indicators give a meaningful picture for this persona?</p>
+        <p style="font-size:13px;color:var(--tx2);margin:0 0 .25rem">Do these indicators give a meaningful picture for this persona?</p>
         ${rbHTML('iR',dr.iR||'')}
         <textarea placeholder="Which indicators would you change, remove, or add? Why?" oninput="upDraft('iN',this.value)" style="min-height:72px;margin-top:4px">${dr.iN||''}</textarea>
       </div>
       <hr class="hdiv" style="margin:0 0 1.5rem">
       <div style="margin-bottom:1.5rem">
         <h3 style="font-size:15px;font-weight:500;margin:0 0 .25rem">What's missing?</h3>
-        <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 .25rem">Anything else this persona needs that isn't captured above?</p>
+        <p style="font-size:13px;color:var(--tx2);margin:0 0 .25rem">Anything else this persona needs that isn't captured above?</p>
         <textarea placeholder="Questions, indicators, or context gaps not mentioned above..." oninput="upDraft('ms',this.value)" style="min-height:72px;margin-top:4px">${dr.ms||''}</textarea>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <button id="btn-draft" onclick="submitR(false)" style="font-size:13px;padding:8px 18px;color:var(--color-text-secondary)">Save draft</button>
-        <button id="btn-submit" onclick="submitR(true)" style="font-size:14px;padding:8px 20px;font-weight:500">Mark as complete</button>
+        <button id="btn-save" onclick="submitR('save')" style="font-size:13px;padding:8px 18px;color:var(--tx2)">Save progress</button>
+        <button id="btn-submit" onclick="submitR('complete')" style="font-size:14px;padding:8px 20px;font-weight:500">Mark as complete</button>
       </div>
       <div id="status-msg">${statusMsg!==undefined?statusMsg:defStatus}</div>
     </div>
   </div></div>`;
 }
 
-function selPoc(poc){
-  S.poc=poc;S.saved={};
-  const asgns=myA(poc);
-  for(const a of asgns){const v=lsGet(lsKey(poc,a.id));if(v)S.saved[a.id]=v;}
+async function selPoc(poc){
+  S.poc=poc;S.saved={};S.drafts={};
+  showOverlay('Loading your saved progress...');
+  try{
+    const remote=await fetchSavedFromSheet(poc);
+    for(const[id,val] of Object.entries(remote)){
+      const numId=parseInt(id);
+      S.saved[numId]=val;
+      S.drafts[numId]={...val};
+    }
+  }catch(e){}
+  hideOverlay();
   renderDashboard();
 }
+
 function startForm(i){S.fi=i;const a=myA(S.poc)[i];if(!S.drafts[a.id]&&S.saved[a.id])S.drafts[a.id]={...S.saved[a.id]};renderForm();}
 function backDash(){renderDashboard();}
 function goBack(){S.poc=null;renderWelcome();}
@@ -206,40 +230,48 @@ function upDraft(field,val){
   S.drafts[a.id][field]=val;
 }
 
-async function submitR(complete){
+async function submitR(action){
   const poc=S.poc;const a=myA(poc)[S.fi];
   const dr=S.drafts[a.id]||{};const ex=S.saved[a.id]||{};
-  const data={poc,persona:a.persona,subPersona:a.subPersona,qR:dr.qR??ex.qR??'',qN:dr.qN??ex.qN??'',iR:dr.iR??ex.iR??'',iN:dr.iN??ex.iN??'',ms:dr.ms??ex.ms??'',completed:complete,at:new Date().toISOString()};
+  const completed=action==='complete';
+  const data={
+    poc, id:a.id,
+    persona:a.persona, subPersona:a.subPersona,
+    qR:dr.qR??ex.qR??'', qN:dr.qN??ex.qN??'',
+    iR:dr.iR??ex.iR??'', iN:dr.iN??ex.iN??'',
+    ms:dr.ms??ex.ms??'',
+    completed, at:new Date().toISOString()
+  };
 
-  const btnD=document.getElementById('btn-draft');
-  const btnS=document.getElementById('btn-submit');
+  const btnSave=document.getElementById('btn-save');
+  const btnSubmit=document.getElementById('btn-submit');
   const statusEl=document.getElementById('status-msg');
-  if(btnD)btnD.disabled=true;
-  if(btnS)btnS.disabled=true;
-  if(statusEl)statusEl.innerHTML=`<p style="font-size:12px;color:var(--color-text-secondary);margin:10px 0 0"><span class="spinner"></span>${complete?'Submitting to Google Sheet...':'Saving...'}</p>`;
+  if(btnSave)btnSave.disabled=true;
+  if(btnSubmit)btnSubmit.disabled=true;
+  if(statusEl)statusEl.innerHTML=`<p class="msg-ld"><span class="spinner"></span>${completed?'Submitting...':'Saving...'}</p>`;
 
-  lsSet(lsKey(poc,a.id),data);
   S.saved[a.id]=data;
+  S.drafts[a.id]={...data};
 
   try{
     await postToSheet(data);
-    if(!complete){
-      renderForm(`<p class="sav-dr">Draft saved locally</p>`);
+    if(!completed){
+      renderForm(`<p class="msg-sv">&#10003; Progress saved to sheet</p>`);
     } else {
       const asgns=myA(poc);
       if(S.fi<asgns.length-1){
         S.fi++;
         const n=asgns[S.fi];
         if(!S.drafts[n.id]&&S.saved[n.id])S.drafts[n.id]={...S.saved[n.id]};
-        renderForm(`<p class="sav-ok">&#10003; Previous review submitted to Google Sheet</p>`);
+        renderForm(`<p class="msg-ok">&#10003; Previous review marked complete</p>`);
       } else {
         renderDashboard();
       }
     }
-  } catch(err){
-    if(btnD)btnD.disabled=false;
-    if(btnS)btnS.disabled=false;
-    if(statusEl)statusEl.innerHTML=`<p class="sav-err">Could not reach the sheet — your response is saved locally. Try again in a moment.</p>`;
+  }catch(err){
+    if(btnSave)btnSave.disabled=false;
+    if(btnSubmit)btnSubmit.disabled=false;
+    if(statusEl)statusEl.innerHTML=`<p class="msg-er">Could not reach the sheet. Check your connection and try again.</p>`;
   }
 }
 
