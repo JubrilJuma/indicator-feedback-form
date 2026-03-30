@@ -102,11 +102,17 @@ function showOverlay(msg){
 }
 function hideOverlay(){const ov=document.getElementById('overlay');if(ov)ov.remove();}
 
-async function fetchSavedFromSheet(poc){
-  const url=`${SHEET_URL}?poc=${encodeURIComponent(poc)}`;
-  const res=await fetch(url);
-  const json=await res.json();
-  return json.responses||{};
+function fetchSavedFromSheet(poc){
+  return new Promise((resolve,reject)=>{
+    const cbName='_sheetCb_'+Date.now();
+    const script=document.createElement('script');
+    const timer=setTimeout(()=>{cleanup();reject(new Error('timeout'));},10000);
+    function cleanup(){clearTimeout(timer);delete window[cbName];if(script.parentNode)script.parentNode.removeChild(script);}
+    window[cbName]=function(data){cleanup();resolve(data.responses||{});};
+    script.src=SHEET_URL+'?poc='+encodeURIComponent(poc)+'&callback='+cbName;
+    script.onerror=function(){cleanup();reject(new Error('script error'));};
+    document.head.appendChild(script);
+  });
 }
 
 async function postToSheet(payload){
